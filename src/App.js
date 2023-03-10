@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Login from "./Component/Login";
+import Navbar from "./Component/Navbar";
+import AddCart from "./pages/AddCart";
+import Home from "./pages/Home";
+import ProductDetail from "./pages/ProductsDetails";
+import CategoryDetail from "./pages/CategoryDetail";
+import Dairy from "./pages/Dairy&Breafast";
+import Munchies from "./pages/Munchies";
+import ColdDrinks from "./pages/ColdDrinks";
+import InstantFood from "./pages/InstantFood";
+import TeaCoffee from "./pages/TeaCoffee";
+import Bakery from "./pages/BakeryBiscuits";
+import ListCategory from "./pages/ListCategory";
+import Cards from "./pages/Cards";
+ 
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+       
+       
+        <Routes>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/card" element={<Cards/>}></Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path="/addcart" element={<AddCart />}></Route>
+          <Route path="/detail" element={<ProductDetail />} />
+          <Route path="/category" element={<CategoryDetail />}></Route>
+
+          <Route element={<CategoryDetail />}>
+            <Route path="/fruits" element={<ListCategory />}></Route>
+            <Route path="/dairy" element={<Dairy />}></Route>
+            <Route path="/munchies" element={<Munchies />}></Route>
+            <Route path="cold" element={<ColdDrinks />}></Route>
+            <Route path="/instant" element={<InstantFood />}></Route>
+            <Route path="/tea" element={<TeaCoffee />}></Route>
+            <Route path="bakery" element={<Bakery />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
