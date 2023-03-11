@@ -1,6 +1,7 @@
 export const Category = [
   {
     id: 1,
+
     image:
       "https://m.media-amazon.com/images/I/41R1te7fcXL._PIbundle-2,TopRight,0,0_SX427SY500SH20_.jpg",
     title: "Paan Corner",
@@ -57,71 +58,66 @@ export const Category = [
     id: 10,
     image:
       "https://www.seekpng.com/png/full/84-848376_grocery-staples-rice-flour-dal-oils-ghee-nuts.png",
-      title:'Atta,Rice & Dal',
-
+    title: "Atta,Rice & Dal",
   },
 
   {
     id: 11,
     image:
       "https://www.bigbasket.com/media/uploads/p/xxl/40053353_7-mashal-kachi-ghani-mustard-oil.jpg",
-      title:'Masala,Oil & More',
+    title: "Masala,Oil & More",
   },
   {
     id: 12,
     image:
       " https://sigarammart.com/wp-content/uploads/2021/10/00-Spreads-Sauces-Ketchup.jpg",
-      title:'Sauces & Spreads',
-      
+    title: "Sauces & Spreads",
   },
   {
     id: 13,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6LYyd_kQzfvDegA_plTHtu3uRjwpy_YXOVg&usqp=CAU",
-      title:'Chicken,Meat & Fish'
+    title: "Chicken,Meat & Fish",
   },
   {
     id: 14,
-    image:
-      "https://images.indianexpress.com/2018/03/oragnic-food.jpg",
-      title:'Organic & Healty Living',
+    image: "https://images.indianexpress.com/2018/03/oragnic-food.jpg",
+    title: "Organic & Healty Living",
   },
   {
     id: 15,
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjYOnW9QfL1GqjJyGGVFT4D1zDytCp5DQZ6w&usqp=CAU",
-      title:'Baby Care',
+    title: "Baby Care",
   },
   {
     id: 16,
     image:
       "https://img.etimg.com/thumb/msid-79117600,width-650,height-488,imgsize-1018198,,resizemode-75/medicines.jpg",
-      title:'Pharma & Weliness'
+    title: "Pharma & Weliness",
   },
   {
     id: 17,
     image:
       "https://5.imimg.com/data5/FW/SI/MY-42825258/surf-excel-quickwash-500x500.png",
-      title:'Cleaning Essentials',
+    title: "Cleaning Essentials",
   },
 
   {
     id: 18,
-    image:
-      "https://m.media-amazon.com/images/I/71Qy4Ad-r5L._SY450_.jpg",
-      title:'Home & Office',
+    image: "https://m.media-amazon.com/images/I/71Qy4Ad-r5L._SY450_.jpg",
+    title: "Home & Office",
   },
   {
     id: 19,
     image:
       "https://5.imimg.com/data5/QS/TO/MY-44941618/personal-care-500x500.jpg",
-      title:'Personal Care',
-
+    title: "Personal Care",
   },
   {
     id: 20,
     image:
       "https://www.pedigree.com/sites/g/files/fnmzdf1201/files/2022-08/10083901-CN-Adult-roast-ckn-rice-veg-30lb.png",
-      title:'Pet Care',
+    title: "Pet Care",
   },
 ];

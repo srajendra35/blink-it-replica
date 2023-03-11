@@ -2,6 +2,7 @@ import React from "react";
 import { ListCategorys } from "../MockUp/ListMock";
 import {  useNavigate } from "react-router-dom";
 import ItemLists from "../Component/ItemList";
+import Fruits from "./Fruits&Veg";
 
 const ListCategory = () => {
   const nevigate = useNavigate();
@@ -21,6 +22,7 @@ const ListCategory = () => {
             ))}
           </div>
           <div className="col-sm-9">
+          <Fruits/>
             <ItemLists />
           </div>
         </div>

@@ -13,6 +13,7 @@ const CategeryItems = () => {
           {Category.map((item) => (
             <div className="page col p-2" onClick={()=>nevigate('/fruits')}>
            <ReactCard  image={item.image}title={item.title}/>
+         
 
             </div>
           ))}

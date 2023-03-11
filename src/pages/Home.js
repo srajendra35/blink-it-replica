@@ -6,10 +6,12 @@ import RollingPaper from "./Rolling&Paper";
 import WelcomeSlice from "../Component/Pages/WelcomeSlice";
  
  
+ 
 
 const Home = () => {
   return (
     <>
+  
       <WelcomeSlice />
       <CardsOrder />
       <CategeryItems />

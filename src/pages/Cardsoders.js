@@ -3,18 +3,20 @@ import { Products } from "../MockUp/CardMockUp";
 import { useNavigate } from "react-router-dom";
 
 const CardsOrder = () => {
-    const nevigate = useNavigate();
+  const nevigate = useNavigate();
   return (
     <>
-     
-        <div className="container-fluid d-flex text-center mt-2 justify-content-around ">
-          {Products.map((item) => (
-            <div className="" onClick={()=>nevigate('/fruits')}>
-              <img src={item.image}/>
-            </div>
-          ))}
+      <div className="container-fluid">
+        <div className="row">
+          <div className="order mt-2 p-1"> 
+            {Products.map((item) => (
+              <div className="" onClick={() => nevigate("/fruits")}>
+                <img className="mt-2" src={item.image} />
+              </div>
+            ))}
+          </div>
         </div>
-    
+      </div>
     </>
   );
 };

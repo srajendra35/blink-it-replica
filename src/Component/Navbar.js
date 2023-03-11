@@ -3,14 +3,18 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Carts from "../Component/Pages/assects/cartss.png";
+import cart from "../assects/carts.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const nevigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [data, setdata] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+  const handledata = () => setdata(true);
+  const handlecldata = () => setdata(false);
+
   const counter = useSelector((state) => state.counter);
 
   const [count, setcount] = useState(0);
@@ -23,7 +27,7 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className=" navbar-collapse" id="navbarSupportedContent">
             <div className="row">
               <div className="d-flex">
                 <div className="blinkit text">
@@ -36,40 +40,85 @@ const Navbar = () => {
                 </div>
                 <div className=" mx-5 delivery">
                   <h6 className="fw-bolder mt-2">Delivery in 10 min</h6>
-                  <span>Jaipur,Rajasthan, in india</span>
+
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    onClick={handledata}
+                  >
+                    Jaipur,Rajasthan, in india
+                  </a>
+
+                  <Modal
+                    className="mt-5"
+                    show={data}
+                    onHide={handlecldata}
+                    animation={false}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Change Location</Modal.Title>
+                    </Modal.Header>
+                    <div className="row col">
+                      <div className="col-6 mx-2 mb-3 mt-1">
+                        <button type="button" class="btn btn-success">
+                          {" "}
+                          Delete my location
+                        </button>
+                        <span>--</span>
+                        <span className=" col-4 border border-dark rounded-pill mx-2">
+                          OR
+                        </span>
+                        <span>--</span>
+                      </div>
+                      <div className="col-1 p-2">
+                        <input
+                          type="text"
+                          placeholder="Type your city Society/Colony/Area"
+                        />
+                      </div>
+                    </div>
+                  </Modal>
                 </div>
               </div>
             </div>
             <form className="col-sm-9 d-flex mt-2" role="search">
+          
               <input
+          
                 className="form-control me-1"
                 type="search"
                 placeholder="Search"
-                aria-label="Search"
+                aria-label="Search" onClick={()=>nevigate('/searchitem')}
+                
               />
 
               <Button
-                variant=" btn  mx-4 fs-3"
+                variant=" btn  mx-4 fs-4"
                 type="button"
                 onClick={handleShow}
               >
                 Login
               </Button>
 
-              <button type="button" className="button btn btn-success" onClick={()=>nevigate('addcart')}>
+              <button
+                type="button"
+                className="button btn btn-success"
+                onClick={() => nevigate("addcart")}
+              >
                 <div className="img d-flex mt-1">
-               
-                    <img
-                      className=""
-                      src={Carts}
-                      alt="cart"
-                      width="20px"
-                      height="20px"
-                    />
-                    <span className=" mx-2  text-white fw-bolder">
-                      {counter.length}My Cart
-                    </span>
-                
+                  <img
+                    className="mt-1"
+                    src={cart}
+                    alt="cart"
+                    width="20px"
+                    height="20px"
+                  />
+                  <span className=" mx-2 text-white fw-bolder">
+                    {counter.length}My Cart
+                  </span>
                 </div>
                 <span className="text-white fw-bolder">₹{count}</span>
               </button>
@@ -100,7 +149,7 @@ const Navbar = () => {
               <div>
                 <button
                   className="col-6 mt-4 btn btn-success lg-btn"
-                  onClick={() => nevigate('/')}
+                  onClick={() => nevigate("/")}
                 >
                   Next
                 </button>

@@ -18,14 +18,16 @@ const Cards = () => {
 
         <div className="row col-12 text-center justify-content-around mt-3">
           {userCards.map((product) => (
-            <Card  style={{ width: "18rem", height: "18rem" }}>
+            <Card style={{ width: "18rem", height: "18rem" }}>
               <NavLink to={"/detail"}>
-                <img  src={product.image} />
+                <img src={product.image} />
               </NavLink>
 
               <Card.Body>
                 <p>{product.title}</p>
+
                 <p>{product.weight}ML</p>
+
                 <div className="d-flex">
                   <p className="mx-4 mt-1">₹{product.price}</p>
 
@@ -38,6 +40,7 @@ const Cards = () => {
                       >
                         +
                       </button>
+
                       <span className="mt-2">{counter.length}</span>
                       <button
                         type="button"

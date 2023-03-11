@@ -7,15 +7,17 @@ const ReactCard = (props) => {
     <>
       <Card  style={{ width: "10rem", height: "12rem"}}>
         <div className="h-50" onClick={() =>Nevigate("/category")}>
+      
          
           <Card.Img
             variant="top"
             src={props.image}
-            className=" w-80 h-100 justify-content-center mt-3"
+            className=" w-80 h-100 justify-content-center"
           />
         </div>
         <div className="">
           <p className="text-center mt-5">{props.title}</p>
+         
         </div>
       </Card>
     </>

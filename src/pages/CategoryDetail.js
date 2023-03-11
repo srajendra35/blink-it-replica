@@ -1,9 +1,7 @@
 import React from "react";
-import {Outlet, useNavigate } from "react-router-dom";
- 
+import { Outlet, useNavigate } from "react-router-dom";
 
-const CategoryDetail=()=> { 
-  
+const CategoryDetail = () => {
   const nevigator = useNavigate();
 
   return (
@@ -28,7 +26,6 @@ const CategoryDetail=()=> {
                       className="nav-item pointer mx-3"
                       onClick={() => nevigator("/dairy")}
                     >
-                      
                       Dairy & Breafast
                     </li>
                     <li
@@ -73,42 +70,74 @@ const CategoryDetail=()=> {
                       </a>
                       <ul className="dropdown-menu">
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("fruits")}
+                          >
                             Sweet Tooth
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("dairy")}
+                          >
                             Att,Rice & Dal
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("fruits")}
+                          >
                             Dry,,fruits masala
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("dairy")}
+                          >
                             Pan Corner
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("fruits")}
+                          >
                             Baby Care
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("dairy")}
+                          >
                             Home & Office
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("fruits")}
+                          >
                             Pet Care
                           </a>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="#">
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            onClick={() => nevigator("dairy")}
+                          >
                             Beauty & Cosmetics
                           </a>
                         </li>
@@ -125,5 +154,5 @@ const CategoryDetail=()=> {
       <Outlet />
     </>
   );
-}
+};
 export default CategoryDetail;

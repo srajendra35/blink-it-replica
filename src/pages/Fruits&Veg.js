@@ -1,31 +1,29 @@
 import React from "react";
-import { userCards } from "../MockUp/Mock";
-import Card from "react-bootstrap/Card";
+
+
 
 const Fruits = () => {
   return (
     <>
       <div className="container">
-        <div className="row col-12 text-center justify-content-around mt-3">
-          <div className="col-sm-12 border d-flex mb-2">
-            <div className="col-sm-8 mt-2">
-              <p className="text-start fw-bolder">
-                Buy Fresh Vegetables Online
-              </p>
+        <div className="border">
+          <div className="d-flex justify-content-between mt-2">
+            <div className="Fresh">
+              <p className="mx-2 mt-2 fw-bolder">Buy Fresh Vegetables Online</p>
             </div>
-            <div className="col-sm-1 mt-2">
-              <p>Sort By</p>
-            </div>
-            <div className="col-sm-3 mt-2">
+
+            <div className="price d-flex">
+            <p className="fw-bolder mx-3 mt-2">Sort By:</p>
+              <ul className="relevence border rounded">
               <li className="nav-item dropdown">
                 <a
-                  className=" text-success nav-link dropdown-toggle"
+                  className="text-dark fs-4 nav-link dropdown-toggle"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Price(Low to High)
+                    Relevance
                 </a>
                 <ul className="dropdown-menu p-2">
                   <div className="form-check">
@@ -36,7 +34,9 @@ const Fruits = () => {
                       id="flexRadioDefault1"
                     />
                     <label className="form-check-label" for="flexRadioDefault1">
-                      Relevance
+                     
+                      Price(Low to High)
+                      
                     </label>
                   </div>
                   <div className="form-check">
@@ -85,6 +85,7 @@ const Fruits = () => {
                   </div>
                 </ul>
               </li>
+              </ul>
             </div>
           </div>
         </div>

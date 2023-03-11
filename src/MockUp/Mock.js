@@ -1,6 +1,7 @@
 export const userCards=[
     {
         id:1,
+        offer:'30% OFF',
         title:'Saras Toned Fresh Milk',
         price:25,
         weight:500,
