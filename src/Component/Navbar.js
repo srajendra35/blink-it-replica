@@ -85,14 +85,12 @@ const Navbar = () => {
               </div>
             </div>
             <form className="col-sm-9 d-flex mt-2" role="search">
-          
               <input
-          
                 className="form-control me-1"
                 type="search"
                 placeholder="Search"
-                aria-label="Search" onClick={()=>nevigate('/searchitem')}
-                
+                aria-label="Search"
+                onClick={() => nevigate("/searchitem")}
               />
 
               <Button
@@ -126,7 +124,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal  show={show} onHide={handleClose}>
           <div className=" text-center justify-content-center container center">
             <Modal.Header closeButton>
               <div className="col-sm-12">
@@ -137,30 +135,32 @@ const Navbar = () => {
             </Modal.Header>
 
             <div className="content text-center mt-5">
-              <Modal.Body className="mt-3 mb-5 fst-italic fs-4">
+              <Modal.Body className="enter  mb-5  fs-4">
                 Enter you Phone number to Login/Sign up
               </Modal.Body>
               <div className="input-group justify-content-center mt-3 ">
-                <span className="input-group-text" id="basic-addon3">
-                  +91
-                </span>
-                <input className="col-sm-8" type="text" />
-              </div>
+             
+  <span class="input-group-text" id="basic-addon1">91+</span>
+  <input type="text" className="col-sm-8 rounded"  aria-label="Username" aria-describedby="basic-addon1"/>
+</div>
+              
               <div>
                 <button
-                  className="col-6 mt-4 btn btn-success lg-btn"
+                  className="col-9 mt-4 btn btn-success lg-btn"
                   onClick={() => nevigate("/")}
                 >
                   Next
                 </button>
               </div>
-              <p className="mt-5">By continuing, you agree to our</p>
-              <a className="mx-3 text-success" href="#">
-                Term of Service
-              </a>{" "}
-              <a className="text-success mb-3" href="#">
-                Privacy of Policy
-              </a>
+              <p className="mt-3">By continuing, you agree to our</p>
+              <div className="mb-2">
+                <span className="mx-3 text-success" href="#">
+                  Term of Service
+                </span>
+                <span className="text-success mb-3" href="#">
+                  Privacy of Policy
+                </span>
+              </div>
             </div>
           </div>
         </Modal>

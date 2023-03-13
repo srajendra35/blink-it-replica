@@ -36,10 +36,11 @@
     transform: rotate(360deg);
   }
 }
-/* .content{
-  background-color: rgb(255, 255, 255);
-  width: 100%;
+.content{
+  background-color: rgb(241, 238, 238);
+ 
 }
+/*
 .center{
   margin-top: 200px;
   border-radius: 10px;
@@ -130,4 +131,7 @@
  }
  ul li{
 list-style: none;
+}
+.enter{
+  font-family: 'Playfair Display', serif;
 }

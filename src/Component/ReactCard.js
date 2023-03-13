@@ -12,7 +12,7 @@ const ReactCard = (props) => {
           <Card.Img
             variant="top"
             src={props.image}
-            className=" w-80 h-100 justify-content-center"
+            className=" w-80 h-100 justify-content-center mt-2"
           />
         </div>
         <div className="">

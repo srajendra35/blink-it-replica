@@ -15,23 +15,18 @@ import Bakery from "./pages/BakeryBiscuits";
 import ListCategory from "./pages/ListCategory";
 import Cards from "./pages/Cards";
 import Trending from "./pages/Trending";
- 
- 
- 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-   
         <Navbar />
-       
-       
+
         <Routes>
-        <Route path="/searchitem" element={<Trending/>}></Route>
+          <Route path="/searchitem" element={<Trending />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/card" element={<Cards/>}></Route>
-          <Route path='/' element={<Home />}></Route>
+          <Route path="/card" element={<Cards />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/addcart" element={<AddCart />}></Route>
           <Route path="/detail" element={<ProductDetail />} />
           <Route path="/category" element={<CategoryDetail />}></Route>
