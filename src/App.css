@@ -135,3 +135,13 @@ list-style: none;
 .enter{
   font-family: 'Playfair Display', serif;
 }
+.input{
+  width: 90px;
+  border: 2px solid black;
+ 
+}
+.resend{
+  cursor: pointer;
+ 
+ 
+}

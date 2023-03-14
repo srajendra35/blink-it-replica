@@ -4,24 +4,34 @@ import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import cart from "../assects/carts.jpg";
+import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import ContectNumber from "./ContectNumber";
+import MobileOtp from "./MobileOtp";
 
 const Navbar = () => {
   const nevigate = useNavigate();
-  const [show, setShow] = useState(false);
+
   const [data, setdata] = useState(false);
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+
   const handledata = () => setdata(true);
   const handlecldata = () => setdata(false);
 
   const counter = useSelector((state) => state.counter);
-
   const [count, setcount] = useState(0);
+
+  const handleSuccess = () => {
+    swal("", "Login Successfully!", "success");
+  };
 
   useEffect(() => {
     setcount(counter.reduce((acc, curr) => acc + curr.price, 0));
   }, [counter]);
+
+  const [login, setLogin] = useState(false);
+
+  const handleLoginSuccess = () => setLogin(true);
+  const handleLogin = () => setLogin(false);
 
   return (
     <>
@@ -61,21 +71,19 @@ const Navbar = () => {
                     <Modal.Header closeButton>
                       <Modal.Title>Change Location</Modal.Title>
                     </Modal.Header>
-                    <div className="row col">
-                      <div className="col-6 mx-2 mb-3 mt-1">
-                        <button type="button" class="btn btn-success">
-                          {" "}
+                    <div className="row">
+                      <div className="col-6 mb-3 mt-1 d-flex">
+                        <button type="button" className="btn btn-success">
                           Delete my location
                         </button>
-                        <span>--</span>
-                        <span className=" col-4 border border-dark rounded-pill mx-2">
-                          OR
-                        </span>
-                        <span>--</span>
+                        <div className="col-3 text-center">
+                          <p className="">OR</p>
+                        </div>
                       </div>
                       <div className="col-1 p-2">
                         <input
                           type="text"
+                          className="rounded"
                           placeholder="Type your city Society/Colony/Area"
                         />
                       </div>
@@ -96,7 +104,7 @@ const Navbar = () => {
               <Button
                 variant=" btn  mx-4 fs-4"
                 type="button"
-                onClick={handleShow}
+                onClick={handleLoginSuccess}
               >
                 Login
               </Button>
@@ -114,55 +122,25 @@ const Navbar = () => {
                     width="20px"
                     height="20px"
                   />
-                  <span className=" mx-2 text-white fw-bolder">
-                    {counter.length}My Cart
-                  </span>
+
+                  {counter.length == 0 ? (
+                    <p className=" mx-1 text-white fw-bolder">My Cart</p>
+                  ) : (
+                    <>
+                      <span className=" mx-2 text-white fw-bolder">
+                        {counter.length}
+                        <span className="mx-1">item</span>
+                      </span>
+                    </>
+                  )}
                 </div>
-                <span className="text-white fw-bolder">₹{count}</span>
+                <p className="text-white fw-bolder">₹{count}</p>
               </button>
             </form>
           </div>
         </div>
-
-        <Modal  show={show} onHide={handleClose}>
-          <div className=" text-center justify-content-center container center">
-            <Modal.Header closeButton>
-              <div className="col-sm-12">
-                <Modal.Title className="fw-bolder texx-center">
-                  Phone Varification
-                </Modal.Title>
-              </div>
-            </Modal.Header>
-
-            <div className="content text-center mt-5">
-              <Modal.Body className="enter  mb-5  fs-4">
-                Enter you Phone number to Login/Sign up
-              </Modal.Body>
-              <div className="input-group justify-content-center mt-3 ">
-             
-  <span class="input-group-text" id="basic-addon1">91+</span>
-  <input type="text" className="col-sm-8 rounded"  aria-label="Username" aria-describedby="basic-addon1"/>
-</div>
-              
-              <div>
-                <button
-                  className="col-9 mt-4 btn btn-success lg-btn"
-                  onClick={() => nevigate("/")}
-                >
-                  Next
-                </button>
-              </div>
-              <p className="mt-3">By continuing, you agree to our</p>
-              <div className="mb-2">
-                <span className="mx-3 text-success" href="#">
-                  Term of Service
-                </span>
-                <span className="text-success mb-3" href="#">
-                  Privacy of Policy
-                </span>
-              </div>
-            </div>
-          </div>
+        <Modal show={login} onHide={handleLogin}>
+          {login ? <ContectNumber props={handleLoginSuccess} /> : <MobileOtp />}
         </Modal>
       </nav>
     </>

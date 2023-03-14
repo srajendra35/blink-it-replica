@@ -5,15 +5,13 @@ import { RemoveCart } from "../Redux/CreateSilce";
 import Modal from "react-bootstrap/Modal";
 import greter from "../assects/greter.png";
 import swal from "sweetalert";
-import { useNavigate } from "react-router-dom";
+
 const AddCart = () => {
   const carts = useSelector((state) => state.counter);
 
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const nevigate = useNavigate();
-
   const [count, setcount] = useState(0);
 
   const handlesetdata = () => {
@@ -25,6 +23,17 @@ const AddCart = () => {
   }, [carts]);
 
   const dispatch = useDispatch();
+
+  const [inputvalue, setinputvalue] = useState(false);
+
+  const handlesuccess = (e) => {
+    const item = e.target.value;
+    if (item.length == 10) {
+      setinputvalue(true);
+    } else {
+      setinputvalue(false);
+    }
+  };
 
   return (
     <>
@@ -138,15 +147,25 @@ const AddCart = () => {
                     <span className="input-group-text" id="basic-addon3">
                       +91
                     </span>
-                    <input className="col-sm-8" type="text" />
+                    <input
+                      className="col-sm-8"
+                      type="text"
+                      onChange={handlesuccess}
+                    />
                   </div>
                   <div>
-                    <button
-                      className="col-6 mt-4 btn btn-success lg-btn"
-                      onClick={handlesetdata}
-                    >
-                      Next
-                    </button>
+                    {inputvalue ? (
+                      <button
+                        className="col-6 mt-4 btn btn-success  lg-btn"
+                        onClick={handlesetdata}
+                      >
+                        Next
+                      </button>
+                    ) : (
+                      <button className="col-6 mt-4 btn btn-secondary lg-btn">
+                        Next
+                      </button>
+                    )}
                   </div>
                   <div className="mb-5">
                     <p className="mt-5">By continuing, you agree to our</p>
