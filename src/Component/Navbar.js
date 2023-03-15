@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import cart from "../assects/carts.jpg";
-import swal from "sweetalert";
+import back from "../assects/back1.png";
+
 import { useNavigate } from "react-router-dom";
 import ContectNumber from "./ContectNumber";
 import MobileOtp from "./MobileOtp";
@@ -12,26 +13,29 @@ import MobileOtp from "./MobileOtp";
 const Navbar = () => {
   const nevigate = useNavigate();
 
-  const [data, setdata] = useState(false);
-
-  const handledata = () => setdata(true);
-  const handlecldata = () => setdata(false);
-
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter); //cart
   const [count, setcount] = useState(0);
 
-  const handleSuccess = () => {
-    swal("", "Login Successfully!", "success");
-  };
+  const [value, setvalue] = useState(false); //Location
+  const handledata = () => setvalue(true);
+  const handlecldata = () => setvalue(false);
 
   useEffect(() => {
     setcount(counter.reduce((acc, curr) => acc + curr.price, 0));
   }, [counter]);
 
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true); //ContectNumber
+  const handleLoginSuccess = () => {
+    setLogin(false);
+  };
+  const Loginstate = () => {
+    setLogin(true);
+  };
 
-  const handleLoginSuccess = () => setLogin(true);
-  const handleLogin = () => setLogin(false);
+  const [show, setShow] = useState(false); // modal
+
+  const handleShow = () => setShow(true);
+  const handleclose = () => setShow(false);
 
   return (
     <>
@@ -64,7 +68,7 @@ const Navbar = () => {
 
                   <Modal
                     className="mt-5"
-                    show={data}
+                    show={value}
                     onHide={handlecldata}
                     animation={false}
                   >
@@ -104,7 +108,7 @@ const Navbar = () => {
               <Button
                 variant=" btn  mx-4 fs-4"
                 type="button"
-                onClick={handleLoginSuccess}
+                onClick={handleShow}
               >
                 Login
               </Button>
@@ -139,8 +143,28 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-        <Modal show={login} onHide={handleLogin}>
-          {login ? <ContectNumber props={handleLoginSuccess} /> : <MobileOtp />}
+
+        <Modal show={show} onHide={handleclose}>
+          <div className="row">
+            <div className="back col-1 mt-1 mx-2 d-flex" onClick={Loginstate}>
+              <img src={back} width="25rem" alt="" />
+              <span className="text-success mx-1">Back</span>
+            </div>
+          </div>
+
+          <div className=" text-center justify-content-center container center">
+            <div className="col-sm-12">
+              <div className="fw-bolder text-center">
+                <h4 className="mt-3 mb-3">Phone Number Varification</h4>
+              </div>
+            </div>
+          </div>
+
+          {login ? (
+            <ContectNumber handleNext={handleLoginSuccess} />
+          ) : (
+            <MobileOtp handleclose={handleclose} login={Loginstate} />
+          )}
         </Modal>
       </nav>
     </>

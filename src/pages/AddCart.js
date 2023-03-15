@@ -5,6 +5,7 @@ import { RemoveCart } from "../Redux/CreateSilce";
 import Modal from "react-bootstrap/Modal";
 import greter from "../assects/greter.png";
 import swal from "sweetalert";
+import MenCart from "../assects/mencart.webp";
 
 const AddCart = () => {
   const carts = useSelector((state) => state.counter);
@@ -184,6 +185,7 @@ const AddCart = () => {
       ) : (
         <>
           <div className="container text-center mt-5">
+            <img src={MenCart} width="30%" alt="" />
             <h3 className=" fw-bolder">
               You don't have any items in your cart
             </h3>

@@ -145,3 +145,10 @@ list-style: none;
  
  
 }
+.inputbox{
+  border: none;
+}
+ 
+.back{
+  cursor: pointer;
+}
