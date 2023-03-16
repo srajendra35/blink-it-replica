@@ -36,7 +36,8 @@ const ContectNumber = (props) => {
 
           <input
             type="text"
-            className="inputbox col-sm-8 rounded"
+            maxLength={10}
+            className="inputbox col-sm-8 rounded fs-3 p-2"
             aria-label="Username"
             aria-describedby="basic-addon1"
             onChange={handleOnchange}

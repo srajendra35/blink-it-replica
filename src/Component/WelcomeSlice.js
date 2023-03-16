@@ -1,8 +1,8 @@
 import React from "react";
  
 import Carousel from "react-bootstrap/Carousel";
-import Veg from "../Pages/assects/29854.jpg";
-import Page from "../Pages/assects/pages.webp";
+import Veg from '../assects/fruit.jpg'
+import Page from '../assects/page.webp'
 
 const  WelcomeSlice=()=> {
   return (

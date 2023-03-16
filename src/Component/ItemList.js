@@ -1,5 +1,5 @@
 import React from "react";
-import { userCards } from "../MockUp/Mock";
+import { userCards } from "../MockUp/Dairy&BreadMock";
 import Card from "react-bootstrap/Card";
 
 const ItemLists=()=>{

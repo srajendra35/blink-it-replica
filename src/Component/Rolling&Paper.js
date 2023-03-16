@@ -1,5 +1,5 @@
 import React from "react";
-import { RollingPapermock } from "../MockUp/Rolling&Paper";
+import { RollingPapermock } from "../MockUp/Rolling&PaperMock";
 import Card from "react-bootstrap/Card";
 
 const RollingPaper = () => {

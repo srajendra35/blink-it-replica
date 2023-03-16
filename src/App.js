@@ -2,19 +2,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./Component/Login";
 import Navbar from "./Component/Navbar";
-import AddCart from "./pages/AddCart";
+import AddCart from "./Component/AddCart";
 import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductsDetails";
-import CategoryDetail from "./pages/CategoryDetail";
-import Dairy from "./pages/Dairy&Breafast";
-import Munchies from "./pages/Munchies";
-import ColdDrinks from "./pages/ColdDrinks";
-import InstantFood from "./pages/InstantFood";
-import TeaCoffee from "./pages/TeaCoffee";
-import Bakery from "./pages/BakeryBiscuits";
+import ProductDetail from "./Component/ProductsDetails";
+import CategoryDetail from "./Component/CategoryDetail";
+import Dairy from "./Component/Dairy&Breafast";
+import Munchies from "./Component/Munchies";
+import ColdDrinks from "./Component/ColdDrinks";
+import InstantFood from "./Component/InstantFood";
+import TeaCoffee from "./Component/TeaCoffee";
+import Bakery from "./Component/BakeryBiscuits";
 import ListCategory from "./pages/ListCategory";
-import Cards from "./pages/Cards";
-import Trending from "./pages/Trending";
+import Cards from "./Component/Cards";
+import Trending from "./Component/Trending";
+ 
  
  
 
@@ -30,7 +31,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/card" element={<Cards />}></Route>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/addcart" element={<AddCart />}></Route>
+          <Route path="/addcart" element={<AddCart/>}></Route>
+          
           <Route path="/detail" element={<ProductDetail />} />
           <Route path="/category" element={<CategoryDetail />}></Route>
 

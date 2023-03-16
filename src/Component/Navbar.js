@@ -1,16 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import cart from "../assects/carts.jpg";
 import back from "../assects/back1.png";
-
 import { useNavigate } from "react-router-dom";
 import ContectNumber from "./ContectNumber";
 import MobileOtp from "./MobileOtp";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import AddCart from "./AddCart";
 
 const Navbar = () => {
+
   const nevigate = useNavigate();
 
   const counter = useSelector((state) => state.counter); //cart
@@ -33,9 +35,12 @@ const Navbar = () => {
   };
 
   const [show, setShow] = useState(false); // modal
-
   const handleShow = () => setShow(true);
   const handleclose = () => setShow(false);
+
+  const [canvas, setcanvas] = useState(false);
+  const CanvasModalShow = () => setcanvas(true);
+  const CanvasModalhide = () => setcanvas(false);
 
   return (
     <>
@@ -116,7 +121,7 @@ const Navbar = () => {
               <button
                 type="button"
                 className="button btn btn-success"
-                onClick={() => nevigate("addcart")}
+                onClick={CanvasModalShow}
               >
                 <div className="img d-flex mt-1">
                   <img
@@ -146,9 +151,15 @@ const Navbar = () => {
 
         <Modal show={show} onHide={handleclose}>
           <div className="row">
-            <div className="back col-1 mt-1 mx-2 d-flex" onClick={Loginstate}>
-              <img src={back} width="25rem" alt="" />
-              <span className="text-success mx-1">Back</span>
+            <div className="back col-1 mt-2 mx-2 d-flex" onClick={Loginstate}>
+              {login ? (
+                <></>
+              ) : (
+                <>
+                  <img src={back} width="25rem" alt="" />
+                  <span className="text-success mx-1">Back</span>
+                </>
+              )}
             </div>
           </div>
 
@@ -167,6 +178,15 @@ const Navbar = () => {
           )}
         </Modal>
       </nav>
+
+      <Offcanvas show={canvas} placement="end" onHide={CanvasModalhide}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title></Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <AddCart handlecanvasclose={CanvasModalhide} />
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   );
 };

@@ -12,15 +12,8 @@ const ProductDetail = () => {
       <div className="container">
         <div className="row mt-5">
           <div className="milk col-sm-6">
-            {/* <img src={milk} width="100%" alt="" /> */}
             <div className="d-flex">
               <div className="row">
-                {/* {ProductDetails.map((item) => (
-                    <div className="border mx-2" key={item.id}>
-                      <img src={item.image} width="100rem" alt="" />
-                    </div>
-                  ))} */}
-
                 <img
                   src={sliderdata.image}
                   height={"300px"}
@@ -165,10 +158,6 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-
-
-
-      
     </>
   );
 };

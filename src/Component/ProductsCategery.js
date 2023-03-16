@@ -1,6 +1,6 @@
 import React from "react";
 import { Category } from "../MockUp/CategeryMockUp";
- import ReactCard from "../Component/ReactCard";
+ import ReactCard from "./ReactCard";
  import { useNavigate } from "react-router-dom";
 
 const CategeryItems = () => {
