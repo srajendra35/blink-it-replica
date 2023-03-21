@@ -1,14 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-const ItemBuyTypeNumber = () => {
+ 
+
+const ItemBuyTypeNumber = (props) => {
+
+  const {value}=props;
   const carts = useSelector((state) => state.counter);
+ 
+  const [count, setcount] = useState(0);
+
+  const totalPrice = count-value + 2;
+
 
   useEffect(() => {
     setcount(carts.reduce((acc, curr) => acc + curr.price, 0));
   }, [carts]);
 
-  const [count, setcount] = useState(0);
   return (
     <>
       <div className="container">
@@ -25,7 +33,7 @@ const ItemBuyTypeNumber = () => {
             <p>Product discount</p>
           </div>
           <div className="col">
-            <p className="text-success">-₹5</p>
+            <p className="text-success">-₹{value.toFixed(2)}</p>
           </div>
         </div>
         <div className="row">
@@ -42,7 +50,7 @@ const ItemBuyTypeNumber = () => {
           </div>
           <div className="col">
             <p>
-              <del>₹15</del>{" "}
+              <del>₹15</del><span> Free</span>
             </p>
           </div>
         </div>
@@ -51,7 +59,7 @@ const ItemBuyTypeNumber = () => {
             <p className="fw-bolder">Grand total</p>
           </div>
           <div className="col">
-            <p className="fw-bolder">₹---</p>
+            <p className="fw-bolder">₹{totalPrice}</p>
           </div>
         </div>
         <div className="row">

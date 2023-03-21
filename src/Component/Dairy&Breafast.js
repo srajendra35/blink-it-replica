@@ -5,9 +5,10 @@ import { DairyProdects } from "../MockUp/DairyProductsMock";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import {
-  productaddcart,
-  productsremovecart,
+  
   AddCart,
+  IncrementItem,
+  decrementItem,
 } from "../Redux/CreateSilce";
 
 const Dairy = () => {
@@ -22,7 +23,7 @@ const Dairy = () => {
             {Dairys.map((item) => (
               <div className="div" key={item.id}>
                 <div className="border p-4">
-                  <img src={item.image} width="30px" height="30px" alt=""/>
+                  <img src={item.image} width="30px" height="30px" alt="" />
                   <span className="mt-1 mx-1">{item.title}</span>
                 </div>
               </div>
@@ -43,12 +44,12 @@ const Dairy = () => {
                     <div className="d-flex">
                       <p className="mx-4 mt-1">₹{product.price}</p>
 
-                      {counter.some((item) => item.id === product.id) ? (
+                 
                         <div className="d-flex mx-4">
                           <button
                             type="button"
                             className="text-white mx-3 btn btn-success"
-                            onClick={() => dispacth(productaddcart(1))}
+                            onClick={() => dispacth(IncrementItem(1))}
                           >
                             +
                           </button>
@@ -56,12 +57,12 @@ const Dairy = () => {
                           <button
                             type="button"
                             className="text-white mx-3 btn btn-success"
-                            onClick={() => dispacth(productsremovecart(-1))}
+                            onClick={() => dispacth(decrementItem(-1))}
                           >
                             -
                           </button>
                         </div>
-                      ) : (
+                  
                         <button
                           type="button"
                           className="col-6 border border-success btn text-success rounded-xl fw-bolder"
@@ -69,7 +70,7 @@ const Dairy = () => {
                         >
                           ADD
                         </button>
-                      )}
+                   
                     </div>
                   </Card.Body>
                 </Card>

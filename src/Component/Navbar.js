@@ -1,18 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import cart from "../assects/carts.jpg";
 import back from "../assects/back1.png";
 import { useNavigate } from "react-router-dom";
-import ContectNumber from "./ContectNumber";
+import ContectNumber from "./LoginVerifiction";
 import MobileOtp from "./MobileOtp";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import AddCart from "./AddCart";
+import AddCart from "../pages/AddCart";
 
 const Navbar = () => {
-
   const nevigate = useNavigate();
 
   const counter = useSelector((state) => state.counter); //cart
@@ -111,7 +110,7 @@ const Navbar = () => {
               />
 
               <Button
-                variant=" btn  mx-4 fs-4"
+                variant=" btn  mx-4 fs-5"
                 type="button"
                 onClick={handleShow}
               >
@@ -125,7 +124,7 @@ const Navbar = () => {
               >
                 <div className="img d-flex mt-1">
                   <img
-                    className="mt-1"
+                    className="mt-1 mx-2"
                     src={cart}
                     alt="cart"
                     width="20px"
@@ -133,10 +132,10 @@ const Navbar = () => {
                   />
 
                   {counter.length == 0 ? (
-                    <p className=" mx-1 text-white fw-bolder">My Cart</p>
+                    <p className="text-white fw-bolder">My Cart</p>
                   ) : (
                     <>
-                      <span className=" mx-2 text-white fw-bolder">
+                      <span className="text-white fw-bolder">
                         {counter.length}
                         <span className="mx-1">item</span>
                       </span>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import mobile from "../assects/mobile.png";
 
 const ContectNumber = (props) => {
@@ -9,12 +10,16 @@ const ContectNumber = (props) => {
 
   const handleOnchange = (e) => {
     const data = e.target.value;
-    if (data.length == 10) {
+    if (data.length ==10 ) {
       setvalue(true);
     } else {
       setvalue(false);
     }
+
+    
   };
+
+  
 
   return (
     <>
@@ -37,7 +42,8 @@ const ContectNumber = (props) => {
           <input
             type="text"
             maxLength={10}
-            className="inputbox col-sm-8 rounded fs-3 p-2"
+           
+            className="inputbox col-sm-8 rounded fs-2 "
             aria-label="Username"
             aria-describedby="basic-addon1"
             onChange={handleOnchange}
@@ -45,18 +51,14 @@ const ContectNumber = (props) => {
         </div>
 
         <div>
-          {value ? (
+        
             <button
-              className="col-10 mt-4 btn btn-success  p-2"
+              className= {value ?("col-4 mt-4 btn btn-success  p-2"):("col-4 mt-4 btn btn-secondary p-2")}
               onClick={handleNext}
             >
               Next
             </button>
-          ) : (
-            <button className="col-10 mt-4 btn btn-secondary lg-btn p-2">
-              Next
-            </button>
-          )}
+            
         </div>
 
         <p className="mt-4">By continuing, you agree to our</p>

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
- 
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-const Modal=()=>{
-    const[input,setinput]=useState(false);
- 
+const Modal = () => {
+  const [input, setinput] = useState(false);
 
   const handleClose = () => setinput(false);
   const handleShow = () => setinput(true);
@@ -39,6 +37,4 @@ const Modal=()=>{
       </Modal>
     </>
   );
-}
-
- 
+};

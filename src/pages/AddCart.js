@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RemoveCart } from "../Redux/CreateSilce";
 import greter from "../assects/greter.png";
 import MenCart from "../assects/mencart.webp";
-import ItemBuyTypeNumber from "./ItemBuyTypeName";
+import ItemBuyTypeNumber from "../Component/ItemBuyTypeName";
 
 const AddCart = (props) => {
   const { handlecanvasclose } = props;
@@ -16,6 +16,12 @@ const AddCart = (props) => {
   useEffect(() => {
     setcount(carts.reduce((acc, curr) => acc + curr.price, 0));
   }, [carts]);
+
+  const discount = (count / 100) * 15;
+
+  const totalPrice = count - discount + 2;
+
+  console.log("value", discount);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,19 +36,19 @@ const AddCart = (props) => {
           <div className="container">
             <div className="row">
               {carts.map((product) => (
-                <div className="my-1 text-center border mx-1 rounded">
-                  <div className="three w-100">
-                    <img src={product.image} width="80px" />
-                  </div>
-                  <div className="h-50">
-                    <p className="">{product.title}</p>
+                <div className="my-1 border text-center mx-1 rounded d-flex">
+                  <div className="mt-1  w-50">
+                    <img src={product.image} width="50%" height="65%" />
                     <p>₹{product.price}</p>
-                    <p>wet:{product.weight}ml</p>
                   </div>
-                  <div className="w-100">
+
+                  <div className="w-50">
+                    <p>{product.title}</p>
+                    <p className="w-100 h-20">{product.weight}ml</p>
+
                     <button
                       type="button"
-                      className="btn btn-info"
+                      className="btn btn-info  h-25"
                       onClick={() => dispatch(RemoveCart(product.id))}
                     >
                       Remove
@@ -51,7 +57,7 @@ const AddCart = (props) => {
                 </div>
               ))}
             </div>
-            <ItemBuyTypeNumber />
+            <ItemBuyTypeNumber value={discount} />
 
             <div className="row">
               <div className="mt-5 bg-success rounded d-flex">
@@ -62,7 +68,7 @@ const AddCart = (props) => {
                   <span className="fs-5 mx-2 fw-bolder text-white">item</span>
                   <span className="fw-bolder fs-2 text-white">.</span>
                   <span className="fs-5 fw-bolder mx-2 text-white">
-                    ₹{count}
+                    ₹{totalPrice}
                   </span>
                 </div>
                 <div className="proced mt-3">

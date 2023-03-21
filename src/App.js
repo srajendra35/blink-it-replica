@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./Component/Login";
 import Navbar from "./Component/Navbar";
-import AddCart from "./Component/AddCart";
+import AddCart from "./pages/AddCart";
 import Home from "./pages/Home";
 import ProductDetail from "./Component/ProductsDetails";
 import CategoryDetail from "./Component/CategoryDetail";
@@ -15,24 +14,18 @@ import Bakery from "./Component/BakeryBiscuits";
 import ListCategory from "./pages/ListCategory";
 import Cards from "./Component/Cards";
 import Trending from "./Component/Trending";
- 
- 
- 
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navbar />
-        
-  
+
         <Routes>
           <Route path="/searchitem" element={<Trending />}></Route>
-          <Route path="/login" element={<Login />}></Route>
           <Route path="/card" element={<Cards />}></Route>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/addcart" element={<AddCart/>}></Route>
-          
+          <Route path="/addcart" element={<AddCart />}></Route>
           <Route path="/detail" element={<ProductDetail />} />
           <Route path="/category" element={<CategoryDetail />}></Route>
 

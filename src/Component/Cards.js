@@ -3,13 +3,11 @@ import { userCards } from "../MockUp/Dairy&BreadMock";
 import Card from "react-bootstrap/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import {
-  AddCart,
-  productaddcart,
-  productsremovecart,
-} from "../Redux/CreateSilce";
+import { AddCart, IncrementItem, decrementItem } from "../Redux/CreateSilce";
+
 const Cards = () => {
   const counter = useSelector((state) => state.counter);
+
   const dispacth = useDispatch();
   return (
     <>
@@ -36,7 +34,7 @@ const Cards = () => {
                       <button
                         type="button"
                         className="text-white mx-3 btn btn-success"
-                        onClick={() => dispacth(productaddcart(1))}
+                        onClick={() => dispacth(IncrementItem(1))}
                       >
                         +
                       </button>
@@ -45,7 +43,7 @@ const Cards = () => {
                       <button
                         type="button"
                         className="text-white mx-3 btn btn-success"
-                        onClick={() => dispacth(productsremovecart(-1))}
+                        onClick={() => dispacth(decrementItem(1))}
                       >
                         -
                       </button>

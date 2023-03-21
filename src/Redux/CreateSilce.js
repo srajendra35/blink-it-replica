@@ -15,17 +15,17 @@ const counterSlice = createSlice({
       return state.filter((item) => item.id !== action.payload);
     },
 
-    // productaddcart(state,action){
-    //     state.cart.push(action.payload);
-    // },
+    IncrementItem(state ,action) {
+      state.push(action.payload);
+    },
 
-    // productsremovecart(state,action){
-    //     state.cart.push(action.payload);
-    // },
+    decrementItem(state,action) {
+       state.pop(action.payload);
+    },
   },
 });
 
-export const { AddCart, RemoveCart, productaddcart, productsremovecart } =
+export const {AddCart,RemoveCart,IncrementItem,decrementItem} =
   counterSlice.actions;
 
 export default counterSlice.reducer;

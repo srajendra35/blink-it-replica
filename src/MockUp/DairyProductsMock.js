@@ -5,6 +5,8 @@ export const  DairyProdects=[
       price:25,
       weight:500,
       image:' https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=135/app/images/products/sliding_image/46258a.jpg',
+    
+     
 
   },
   {
