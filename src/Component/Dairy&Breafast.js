@@ -6,9 +6,7 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import {
   
-  AddCart,
-  IncrementItem,
-  decrementItem,
+  AddCart, decrementItem, incrementItem,
 } from "../Redux/CreateSilce";
 
 const Dairy = () => {
@@ -49,7 +47,7 @@ const Dairy = () => {
                           <button
                             type="button"
                             className="text-white mx-3 btn btn-success"
-                            onClick={() => dispacth(IncrementItem(1))}
+                            onClick={() => dispacth(incrementItem())}
                           >
                             +
                           </button>
@@ -57,7 +55,7 @@ const Dairy = () => {
                           <button
                             type="button"
                             className="text-white mx-3 btn btn-success"
-                            onClick={() => dispacth(decrementItem(-1))}
+                            onClick={() => dispacth(decrementItem())}
                           >
                             -
                           </button>

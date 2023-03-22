@@ -57,7 +57,7 @@ export const Category = [
   {
     id: 10,
     image:
-      "https://www.seekpng.com/png/full/84-848376_grocery-staples-rice-flour-dal-oils-ghee-nuts.png",
+      "https://gpcdn.ams3.cdn.digitaloceanspaces.com/deals/upto-20-off-on-atta-dal-oil-rice-amazon-pantry-1517464180.jpg",
     title: "Atta,Rice & Dal",
   },
 

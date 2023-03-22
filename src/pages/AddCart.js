@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RemoveCart } from "../Redux/CreateSilce";
+import { incrementItem, decrementItem, RemoveCart } from "../Redux/CreateSilce";
 import greter from "../assects/greter.png";
 import MenCart from "../assects/mencart.webp";
 import ItemBuyTypeNumber from "../Component/ItemBuyTypeName";
@@ -11,19 +11,15 @@ const AddCart = (props) => {
 
   const carts = useSelector((state) => state.counter);
 
-  const [count, setcount] = useState(0);
-
-  useEffect(() => {
-    setcount(carts.reduce((acc, curr) => acc + curr.price, 0));
-  }, [carts]);
-
-  const discount = (count / 100) * 15;
-
-  const totalPrice = count - discount + 2;
-
-  console.log("value", discount);
-
   const dispatch = useDispatch();
+
+  const cartTotal = carts
+    .map((item) => item.price * item.quantity)
+    .reduce((prevValue, currValue) => prevValue + currValue, 0);
+
+  const discount = (cartTotal / 100) * 15;
+  const totalPrice = cartTotal - discount + 2;
+
   const navigate = useNavigate();
   const shoopping = () => {
     navigate("/");
@@ -46,13 +42,36 @@ const AddCart = (props) => {
                     <p>{product.title}</p>
                     <p className="w-100 h-20">{product.weight}ml</p>
 
-                    <button
-                      type="button"
-                      className="btn btn-info  h-25"
-                      onClick={() => dispatch(RemoveCart(product.id))}
-                    >
-                      Remove
-                    </button>
+                    <div className="d-flex mx-4">
+                      {product.quantity == 0 ? (
+                        <button
+                          type="button"
+                          className="btn btn-info  h-25"
+                          onClick={() => dispatch(RemoveCart(product.id))}
+                        >
+                          Remove
+                        </button>
+                      ) : (
+                        <>
+                          {" "}
+                          <button
+                            type="button"
+                            className="text-white mx-3 btn btn-success"
+                            onClick={() => dispatch(incrementItem(product.id))}
+                          >
+                            +
+                          </button>
+                          <b className="mt-2">{product.quantity}</b>
+                          <button
+                            type="button"
+                            className="text-white mx-3 btn btn-success"
+                            onClick={() => dispatch(decrementItem(product.id))}
+                          >
+                            -
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}

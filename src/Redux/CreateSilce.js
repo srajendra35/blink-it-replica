@@ -8,24 +8,42 @@ const counterSlice = createSlice({
 
   reducers: {
     AddCart(state, action) {
-      state.push(action.payload);
+      const newItemId = action.payload.id;
+      const existingItem = state.find((item) => item.id === newItemId);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        state.push(action.payload);
+      }
     },
 
     RemoveCart(state, action) {
       return state.filter((item) => item.id !== action.payload);
     },
 
-    IncrementItem(state ,action) {
-      state.push(action.payload);
+    incrementItem(state, action) {
+      state.map((item) => {
+        if (item.id == action.payload) {
+          item.quantity++;
+        }
+        return item;
+      });
     },
 
-    decrementItem(state,action) {
-       state.pop(action.payload);
+    decrementItem(state, action) {
+      state
+        .map((item) => {
+          if (item.id == action.payload) {
+            item.quantity--;
+          }
+          return item;
+        })
+        .filter((item) => item.quantity !== 0);
     },
   },
 });
 
-export const {AddCart,RemoveCart,IncrementItem,decrementItem} =
+export const { AddCart, RemoveCart, incrementItem, decrementItem } =
   counterSlice.actions;
 
 export default counterSlice.reducer;

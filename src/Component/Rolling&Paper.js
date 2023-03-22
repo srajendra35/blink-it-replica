@@ -8,9 +8,11 @@ const RollingPaper = () => {
       <div className="container-fluid">
         <h3 className="mt-5 fw-bolder">Rolling paper & tobacco</h3>
 
-        <div className="row col-12 text-center justify-content-around mt-3">
+        <div className="row text-center mt-3 p-3">
           {RollingPapermock.map((product) => (
-            <Card style={{ width: "20rem", height: "22rem" }}>
+            <div className="col p-1">
+        
+            <Card style={{ width: "20rem", height: "20rem" }}>
               <div className="img">
                 <img src={product.image} />
               </div>
@@ -22,7 +24,7 @@ const RollingPaper = () => {
                 </div>
 
                 <div className="d-flex p-4">
-                  <p className="mx-4 mt-2">₹{product.price}</p>
+                  <p className="mx-4">₹{product.price}</p>
                   <button
                     type="button"
                     className=" col-6 btn border-success text-success fw-bolder"
@@ -32,6 +34,8 @@ const RollingPaper = () => {
                 </div>
               </Card.Body>
             </Card>
+                   
+            </div>
           ))}
         </div>
       </div>

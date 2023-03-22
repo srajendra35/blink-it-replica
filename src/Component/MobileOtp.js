@@ -6,12 +6,8 @@ import OtpInput from "react18-input-otp";
 const MobileOtp = (props) => {
   const { handleclose, login } = props;
 
-
-
-  
   const handleSuccess = () => {
-
-    swal("", "Login Successfully!", "success", {timer:1000});
+    swal("", "Login Successfully!", "success", { timer: 1000 });
   };
 
   const [otp, setOtp] = useState("");

@@ -1,21 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
- 
 
 const ItemBuyTypeNumber = (props) => {
-
-  const {value}=props;
+  const { value } = props;
   const carts = useSelector((state) => state.counter);
- 
-  const [count, setcount] = useState(0);
 
-  const totalPrice = count-value + 2;
+  const cartTotal = carts
+    .map((item) => item.price * item.quantity)
+    .reduce((prevValue, currValue) => prevValue + currValue, 0);
 
+  const discount = (cartTotal / 100) * 15;
 
-  useEffect(() => {
-    setcount(carts.reduce((acc, curr) => acc + curr.price, 0));
-  }, [carts]);
+  const totalPrice = cartTotal - discount + 2;
 
   return (
     <>
@@ -25,7 +22,7 @@ const ItemBuyTypeNumber = (props) => {
             <p>MRP</p>
           </div>
           <div className="col">
-            <p>₹{count}</p>
+            <p>₹{cartTotal}</p>
           </div>
         </div>
         <div className="row">
@@ -50,7 +47,8 @@ const ItemBuyTypeNumber = (props) => {
           </div>
           <div className="col">
             <p>
-              <del>₹15</del><span> Free</span>
+              <del>₹15</del>
+              <span> Free</span>
             </p>
           </div>
         </div>
