@@ -42,7 +42,7 @@ const Dairy = () => {
                     <div className="d-flex">
                       <p className="mx-4 mt-1">₹{product.price}</p>
 
-                 
+{/*                  
                         <div className="d-flex mx-4">
                           <button
                             type="button"
@@ -60,7 +60,7 @@ const Dairy = () => {
                             -
                           </button>
                         </div>
-                  
+                   */}
                         <button
                           type="button"
                           className="col-6 border border-success btn text-success rounded-xl fw-bolder"

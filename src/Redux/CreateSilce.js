@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
+ 
 
 const counterSlice = createSlice({
   name: "counter",
   initialState,
 
   reducers: {
+   
     AddCart(state, action) {
       const newItemId = action.payload.id;
       const existingItem = state.find((item) => item.id === newItemId);
@@ -15,7 +17,9 @@ const counterSlice = createSlice({
       } else {
         state.push(action.payload);
       }
+       
     },
+ 
 
     RemoveCart(state, action) {
       return state.filter((item) => item.id !== action.payload);
@@ -37,9 +41,9 @@ const counterSlice = createSlice({
             item.quantity--;
           }
           return item;
-        })
-        .filter((item) => item.quantity !== 0);
-    },
+        }).filter((item) => item.quantity !== 0);
+      },
+     
   },
 });
 

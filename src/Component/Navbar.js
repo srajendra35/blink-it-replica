@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -21,9 +21,12 @@ const Navbar = () => {
   const handledata = () => setvalue(true);
   const handlecldata = () => setvalue(false);
 
-  useEffect(() => {
-    setcount(counter.reduce((acc, curr) => acc + curr.price, 0));
-  }, [counter]);
+  const cartTotal = counter
+    .map((item) => item.price * item.quantity)
+    .reduce((prevValue, currValue) => prevValue + currValue, 0);
+
+    const discount = (cartTotal / 100) * 15;
+    const totalPrice = cartTotal - discount + 2;
 
   const [login, setLogin] = useState(true); //ContectNumber
   const handleLoginSuccess = () => {
@@ -142,7 +145,7 @@ const Navbar = () => {
                     </>
                   )}
                 </div>
-                <p className="text-white fw-bolder">₹{count}</p>
+                <p className="text-white fw-bolder">₹{totalPrice}</p>
               </button>
             </form>
           </div>

@@ -44,7 +44,7 @@ const AddCart = (props) => {
 
                     <div className="d-flex mx-4">
                       {product.quantity == 0 ? (
-                        <button
+                        <button  
                           type="button"
                           className="btn btn-info  h-25"
                           onClick={() => dispatch(RemoveCart(product.id))}
@@ -53,7 +53,7 @@ const AddCart = (props) => {
                         </button>
                       ) : (
                         <>
-                          {" "}
+                      
                           <button
                             type="button"
                             className="text-white mx-3 btn btn-success"
