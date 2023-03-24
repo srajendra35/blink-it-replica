@@ -6,8 +6,9 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import {
   
-  AddCart, decrementItem, incrementItem,
+  AddCart 
 } from "../Redux/CreateSilce";
+import Cards from "./Cards";
 
 const Dairy = () => {
   const nevigate = useNavigate();
@@ -30,9 +31,11 @@ const Dairy = () => {
           <div className="col-sm-9">
             <div
               className="row col-12 text-center justify-content-around mt-3"
-              onClick={() => nevigate("/detail")}
+              onClick={() => nevigate("")}
             >
-              {DairyProdects.map((product) => (
+
+            <Cards/>
+              {/* {DairyProdects.map((product) => (
                 <Card style={{ width: "20rem", height: "22rem" }}>
                   <img src={product.image} />
 
@@ -42,25 +45,7 @@ const Dairy = () => {
                     <div className="d-flex">
                       <p className="mx-4 mt-1">₹{product.price}</p>
 
-{/*                  
-                        <div className="d-flex mx-4">
-                          <button
-                            type="button"
-                            className="text-white mx-3 btn btn-success"
-                            onClick={() => dispacth(incrementItem())}
-                          >
-                            +
-                          </button>
-                          <span className="mt-2">{counter.length}</span>
-                          <button
-                            type="button"
-                            className="text-white mx-3 btn btn-success"
-                            onClick={() => dispacth(decrementItem())}
-                          >
-                            -
-                          </button>
-                        </div>
-                   */}
+ 
                         <button
                           type="button"
                           className="col-6 border border-success btn text-success rounded-xl fw-bolder"
@@ -72,7 +57,7 @@ const Dairy = () => {
                     </div>
                   </Card.Body>
                 </Card>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

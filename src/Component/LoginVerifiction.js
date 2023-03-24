@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { isValidPhoneNumber } from "react-phone-number-input";
 import mobile from "../assects/mobile.png";
+import Input from 'react-phone-number-input/input'
+import PhoneInput from "react-phone-number-input/input";
 
 const ContectNumber = (props) => {
   const { handleNext } = props;
 
   const [value, setvalue] = useState(false);
-
+ 
   const handleOnchange = (e) => {
     const data = e.target.value;
     if (data.length == 10) {
@@ -35,13 +36,16 @@ const ContectNumber = (props) => {
             +91-
           </span>
 
-          <input
+          <PhoneInput
             type="text"
+            country="in"
+            value={value}
             maxLength={10}
             className="inputbox col-sm-8 rounded fs-2 "
             aria-label="Username"
             aria-describedby="basic-addon1"
-            onChange={handleOnchange}
+            onChange={setvalue}
+           
           />
         </div>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { ListCategorys } from "../MockUp/ListMock";
 import { useNavigate } from "react-router-dom";
 import ItemLists from "../Component/ItemList";
-import Fruits from "../Component/Fruits&Veg";
+import Fruits from "../Component/SortByPrice";
 
 const ListCategory = () => {
   const nevigate = useNavigate();

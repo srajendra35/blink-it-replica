@@ -12,7 +12,7 @@ const Cards = () => {
   return (
     <>
       <div className="container-fluid">
-        <h3 className="mt-1 fw-bolder">Dairy, Bread & Eggs</h3>
+   
 
         <div className="row text-center mt-1 p-3">
           {userCards.map((product) => {
@@ -31,15 +31,15 @@ const Cards = () => {
                     <p>{product.weight}ML</p>
 
                     <div className="d-flex">
-                      <p className="mx-4 mt-1">₹{product.price}</p>
+                      <p className="w-100">₹{product.price}</p>
 
                       {counter.some(
                         (item) => item.id === product.id && item.quantity != 0
                       ) ? (
-                        <div className="d-flex mx-4">
+                        <div className="d-flex w-100">
                           <button
                             type="button"
-                            className="text-white mx-3 btn btn-success"
+                            className="text-white mx-2 btn btn-success"
                             onClick={() => dispacth(incrementItem(product.id))}
                           >
                             +
@@ -55,7 +55,7 @@ const Cards = () => {
 
                           <button
                             type="button"
-                            className="text-white mx-3 btn btn-success"
+                            className="text-white mx-2 btn btn-success"
                             onClick={() => dispacth(decrementItem(product.id))}
                           >
                             -

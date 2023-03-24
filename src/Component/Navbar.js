@@ -1,5 +1,5 @@
 import React from "react";
-import { useState} from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -10,12 +10,12 @@ import ContectNumber from "./LoginVerifiction";
 import MobileOtp from "./MobileOtp";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import AddCart from "../pages/AddCart";
+import { API } from "../api";
 
 const Navbar = () => {
   const nevigate = useNavigate();
 
   const counter = useSelector((state) => state.counter); //cart
-  const [count, setcount] = useState(0);
 
   const [value, setvalue] = useState(false); //Location
   const handledata = () => setvalue(true);
@@ -25,8 +25,8 @@ const Navbar = () => {
     .map((item) => item.price * item.quantity)
     .reduce((prevValue, currValue) => prevValue + currValue, 0);
 
-    const discount = (cartTotal / 100) * 15;
-    const totalPrice = cartTotal - discount + 2;
+  const discount = (cartTotal / 100) * 15;
+  const totalPrice = cartTotal - discount + 2;
 
   const [login, setLogin] = useState(true); //ContectNumber
   const handleLoginSuccess = () => {
@@ -44,9 +44,21 @@ const Navbar = () => {
   const CanvasModalShow = () => setcanvas(true);
   const CanvasModalhide = () => setcanvas(false);
 
+ 
+
+  API.getProducts().then((res)=>{
+    const data = res.id;
+    console.log(data);
+  })
+
+  
+ 
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+
+    
+      <nav className="sticky-top navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <div className=" navbar-collapse" id="navbarSupportedContent">
             <div className="row">

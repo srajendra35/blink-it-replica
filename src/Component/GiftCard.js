@@ -8,10 +8,10 @@ const CardsOrder = () => {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="order mt-2 p-1"> 
+          <div className="order mt-1"> 
             {Products.map((item) => (
               <div className="" onClick={() => nevigate("/fruits")}>
-                <img className="mt-2" src={item.image} />
+                <img className=" mx-5 col-sm-11 mt-2" src={item.image} />
               </div>
             ))}
           </div>

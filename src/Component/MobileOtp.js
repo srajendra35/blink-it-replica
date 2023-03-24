@@ -44,6 +44,7 @@ const MobileOtp = (props) => {
 
           <div className="col-12 mb-5 mt-3 text-center mx-5">
             <OtpInput
+              type="number"
               value={otp}
               className="mx-3"
               inputStyle={{ width: "60px", padding: "15px", fontSize: "25" }}

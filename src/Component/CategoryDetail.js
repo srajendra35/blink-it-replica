@@ -8,9 +8,20 @@ const CategoryDetail = () => {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-12">
-            <div className="nav justify-content-center">
-              <nav className=" navbar navbar-expand-lg bg-body-tertiary">
+          <div className="col-lg-12 ">
+            <div className=" nav justify-content-center">
+              <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
                 <div
                   className="navbar collapse navbar-collapse"
                   id="navbarNavDropdown"

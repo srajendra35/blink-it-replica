@@ -10,6 +10,7 @@ const AddCart = (props) => {
   const { handlecanvasclose } = props;
 
   const carts = useSelector((state) => state.counter);
+   
 
   const dispatch = useDispatch();
 
